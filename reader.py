@@ -6,10 +6,8 @@ from PIL import Image
 from datetime import datetime
 import os
 
-start = datetime.now()
+
 reader = easyocr.Reader(['en', 'ru'], gpu=True)
-reader_time = datetime.now()
-print(f'time for reader: {reader_time - start}')
 
 
 def read_from_file(fp):
@@ -33,7 +31,7 @@ def read_from_file(fp):
             if sym.isnumeric():
                 new_item += sym
         new_arr.append(new_item)
-    print(new_arr)
+    # print(new_arr)
 
     result = '|'.join(new_arr)
     # result = map(int, filter(lambda el: el.isnumeric(), sum(map(lambda b: b[1], bounds)).split()))
